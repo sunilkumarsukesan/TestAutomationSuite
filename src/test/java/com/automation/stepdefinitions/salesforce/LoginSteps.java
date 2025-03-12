@@ -1,8 +1,7 @@
 package com.automation.stepdefinitions.salesforce;
-import com.automation.core.base.BaseTest;
-import com.automation.core.drivers.DriverManager;
+
+import com.automation.core.testData.TestDataManager;
 import com.automation.pages.salesforce.LoginPage;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -12,7 +11,9 @@ public class LoginSteps extends LoginPage {
 
     @When("User enters valid username and password")
     public void user_enters_valid_username_and_password() {
-        enterUsername().enterPassword();
+        String username = TestDataManager.getTestData("Username");
+        String password = TestDataManager.getTestData("Password");
+        enterUsername(username).enterPassword(password);
     }
 
     @When("User clicks on login button")

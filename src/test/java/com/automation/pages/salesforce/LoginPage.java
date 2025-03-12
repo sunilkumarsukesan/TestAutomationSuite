@@ -11,14 +11,14 @@ public class LoginPage extends BasePage {
     private WebElement loginButton = actions.locateElement(Locators.ID, "Login");
 
     // ✅ Fetch elements dynamically before each action to avoid stale element issues
-    public LoginPage enterUsername() {
-        actions.clearAndType(usernameField, "sunil9600022545@gmail.com");
+    public LoginPage enterUsername(String userName) {
+        actions.clearAndType(usernameField, userName);
         ExtentManager.logStep("User entered the username successfully", "PASS", true);
         return this;
     }
 
-    public LoginPage enterPassword() {
-        actions.clearAndType(passwordField, "Winter@607");
+    public LoginPage enterPassword(String password) {
+        actions.clearAndType(passwordField, password);
         ExtentManager.logStep("User entered the password successfully", "PASS", true);
         return this;
     }
