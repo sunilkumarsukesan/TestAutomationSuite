@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestAutomationSuite" parallel="tests">
+<suite name="TestAutomationSuite" parallel="tests" thread-count="2">
     <listeners>
         <listener class-name="com.automation.core.listeners.TestListener"/>
     </listeners>

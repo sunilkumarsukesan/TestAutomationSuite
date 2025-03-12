@@ -1,8 +1,8 @@
 package com.automation.stepdefinitions;
 
 import com.automation.core.config.ConfigManager;
+import com.automation.core.hooks.Hooks;
 import com.automation.core.testData.TestDataManager;
-import com.automation.hooks.Hooks;
 import io.cucumber.java.en.Given;
 import java.io.IOException;
 import java.util.Arrays;
@@ -20,7 +20,7 @@ public class CommonSteps {
         for (String sheet : testDataSheets) {
             System.out.println("Loading test data for: " + sheet);
             TestDataManager.loadTestData(ConfigManager.getTestDataPath() + "/" +
-                    ConfigManager.getApplicationName() + "/" +sheet);
+                    Hooks.application + "/" +sheet);
         }
     }
 
@@ -28,7 +28,7 @@ public class CommonSteps {
     public void testDataFileIsLoaded(String testDataFile) throws IOException {
         testDataFileForExecution = String.format("%s%s/%s",
                 ConfigManager.getTestDataPath(),
-                ConfigManager.getApplicationName(),
+                Hooks.application,
                 testDataFile.endsWith(".xlsx") ? testDataFile : testDataFile + ".xlsx"
         );
         TestDataManager.loadTestData(testDataFileForExecution);

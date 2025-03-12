@@ -1,18 +1,19 @@
 package com.automation.stepdefinitions.salesforce;
 
+import com.automation.core.config.ConfigManager;
+import com.automation.core.hooks.Hooks;
 import com.automation.core.testData.TestDataManager;
 import com.automation.pages.salesforce.LoginPage;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class LoginSteps extends LoginPage {
-    private RemoteWebDriver driver;
 
     @When("User enters valid username and password")
     public void user_enters_valid_username_and_password() {
-        String username = TestDataManager.getTestData("Username");
-        String password = TestDataManager.getTestData("Password");
+        String username = ConfigManager.getApplicationUsername(Hooks.application);
+        String password = ConfigManager.getApplicationPassword(Hooks.application);
         enterUsername(username).enterPassword(password);
     }
 
@@ -25,4 +26,11 @@ public class LoginSteps extends LoginPage {
     public void user_should_be_redirected_to_salesforce_home_page() {
         // Add validation logic here
     }
+
+    @Given("I login to Salesforce application using valid username and password")
+    public void iLoginToSalesforce() {
+        user_enters_valid_username_and_password();
+        clickLogin();
+    }
+
 }
