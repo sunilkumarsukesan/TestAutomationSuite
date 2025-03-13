@@ -1,7 +1,7 @@
 package com.automation.pages.salesforce;
 
+import com.automation.core.base.BasePage;
 import com.automation.core.design.Locators;
-import com.automation.core.pages.BasePage;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 

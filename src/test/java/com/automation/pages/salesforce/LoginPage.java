@@ -1,10 +1,8 @@
 package com.automation.pages.salesforce;
 
-import com.automation.core.pages.BasePage;
-import com.automation.core.reporting.ExtentManager;
+import com.automation.core.base.BasePage;
 import com.automation.core.design.Locators;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
 

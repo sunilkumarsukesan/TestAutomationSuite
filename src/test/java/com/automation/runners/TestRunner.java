@@ -4,7 +4,6 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
-import java.io.IOException;
 
 @CucumberOptions(
         features = "src/test/resources/features",
@@ -13,16 +12,15 @@ import java.io.IOException;
                 "pretty",
                 "html:target/CucumberReports.html",
                 "json:target/CucumberReports.json",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-                "com.automation.core.utils.FeatureFilePathPlugin"
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
         monochrome = true,
-        tags = "@VerifyContact"
+        tags = "@VerifyContact or @validLogin"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
     @BeforeSuite
-    public void beforeSuite() throws IOException {
+    public void beforeSuite() {
         System.out.println("Executing tests from feature files: " + String.join(", ", getTagExpression()));
     }
 

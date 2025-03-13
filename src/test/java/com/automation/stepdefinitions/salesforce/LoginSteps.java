@@ -11,7 +11,7 @@ import io.cucumber.java.en.Then;
 public class LoginSteps extends LoginPage {
 
     @When("User enters valid username and password")
-    public void user_enters_valid_username_and_password() {
+    public void user_enters_valid_username_and_password() throws Exception {
         String username = ConfigManager.getApplicationUsername(Hooks.application);
         String password = ConfigManager.getApplicationPassword(Hooks.application);
         enterUsername(username).enterPassword(password);
@@ -28,7 +28,7 @@ public class LoginSteps extends LoginPage {
     }
 
     @Given("I login to Salesforce application using valid username and password")
-    public void iLoginToSalesforce() {
+    public void iLoginToSalesforce() throws Exception {
         user_enters_valid_username_and_password();
         clickLogin();
     }
