@@ -2,6 +2,8 @@ package com.automation.runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 
@@ -18,10 +20,11 @@ import org.testng.annotations.DataProvider;
         tags = "@VerifyContact or @validLogin"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
+    private static final Logger logger = LoggerFactory.getLogger(TestRunner.class);
 
     @BeforeSuite
     public void beforeSuite() {
-        System.out.println("Executing tests from feature files: " + String.join(", ", getTagExpression()));
+        logger.info("Executing tests from feature files: " + String.join(", ", getTagExpression()));
     }
 
     private String[] getTagExpression() {

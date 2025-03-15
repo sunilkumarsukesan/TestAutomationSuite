@@ -1,4 +1,4 @@
-@smoke @login
+@Login
 Feature: Salesforce Login
 
   Background:
